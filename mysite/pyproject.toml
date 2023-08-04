@@ -16,6 +16,7 @@ asgiref = "^3.7.2"
 djangorestframework = "^3.14.0"
 pyt = "^1.0.5"
 sentry-sdk = "^1.29.0"
+gunicorn = "^21.2.0"
 
 
 [build-system]
