@@ -1,41 +1,41 @@
-version: '3.9'
-
-services:
-  app:
-    build:
-      dockerfile: ./Dockerfile
-    command:
-      - "python"
-      - "manage.py"
-      - "runserver"
-      -  "0.0.0.0:8080"
-
-    ports:
-      - '8000:8080'
-
-
 #version: '3.9'
 #
 #services:
 #  app:
 #    build:
-#      context: .
 #      dockerfile: ./Dockerfile
 #    command:
-#      - gunicorn
-#      - mysite.wsgi:application
-#      - --bind
-#      - "0.0.0.0:8000"
+#      - "python"
+#      - "manage.py"
+#      - "runserver"
+#      -  "0.0.0.0:8080"
+#
 #    ports:
-#      - '8000:8000'
-#    restart: always
-#    logging:
-#      driver: "json-file"
-#      options:
-#        max-file: "10"
-#        max-size: "200k"
-#    volumes:
-#      - mysite/database:/app/database
+#      - '8000:8080'
+
+
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command:
+      - gunicorn
+      - mysite.wsgi:application
+      - --bind
+      - "0.0.0.0:8000"
+    ports:
+      - '8000:8000'
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "10"
+        max-size: "200k"
+    volumes:
+      - mysite/database:/app/database
 
 
 #  grafana:
