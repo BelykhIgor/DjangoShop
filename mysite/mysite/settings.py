@@ -44,10 +44,8 @@ SECRET_KEY = getenv(
 DEBUG = getenv("DJANGO_DEBUG", "1") == "0"
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
     '127.0.0.1',
     'localhost',
-
 ] + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 
